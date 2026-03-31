@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClipIt — Blog</title>
+<title>ClipIt — Privacy Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
   --muted: #87A8D0;
   --gold: #F7D358;
   --border: #E8E8E8;
+  --dark: #0d1b35;
 }
 html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 body { font-family: 'Montserrat', sans-serif; color: var(--body); background: var(--white); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
@@ -55,16 +56,27 @@ nav {
 .cd-sep { color: rgba(255,255,255,.3); }
 
 /* ─── PAGE ─── */
-.page { flex: 1; display: flex; align-items: center; justify-content: center; background: var(--bg); padding: 184px 6% 80px; }
-.card { background: var(--white); border-radius: 24px; padding: 56px 60px; max-width: 560px; width: 100%; box-shadow: 0 8px 40px rgba(31,58,109,.1); text-align: center; }
-.card-icon { font-size: 40px; margin-bottom: 20px; }
-.card h1 { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 12px; }
-.card p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 28px; }
-.card a.btn { display: inline-block; background: var(--navy); color: white; text-decoration: none; border-radius: 50px; padding: 12px 28px; font-size: 14px; font-weight: 600; font-family: 'Poppins', sans-serif; transition: background .2s; }
-.card a.btn:hover { background: var(--navy2); }
+.page { flex: 1; background: var(--white); padding: 164px 6% 80px; }
+.doc { max-width: 720px; margin: 0 auto; }
+.doc-title {
+  font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--navy);
+  letter-spacing: -.02em; line-height: 1.1; margin-bottom: 12px;
+}
+.doc-meta { font-size: 13px; color: var(--muted); margin-bottom: 52px; }
+.doc-section { margin-bottom: 40px; }
+.doc-section h2 {
+  font-size: 18px; font-weight: 600; color: var(--navy);
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.doc-section p { font-size: 15px; line-height: 1.8; color: var(--body); margin-bottom: 12px; }
+.doc-section p:last-child { margin-bottom: 0; }
+.doc-section ul { padding-left: 20px; margin-top: 8px; }
+.doc-section ul li { font-size: 15px; line-height: 1.8; color: var(--body); margin-bottom: 6px; }
+.doc-section a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ─── FOOTER ─── */
-.page-footer { background: #0d1b35; padding: 40px 6% 32px; }
+.page-footer { background: var(--dark); padding: 40px 6% 32px; }
 .page-footer .ft-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; width: 100%; }
 .page-footer .ft-left { display: flex; flex-direction: column; gap: 14px; }
 .page-footer .ft-copy { font-size: 12px; color: rgba(255,255,255,.25); }
@@ -74,8 +86,7 @@ nav {
 .ft-cookies { font-size: 11px; color: rgba(255,255,255,.5); }
 
 @media (max-width: 600px) {
-  .card { padding: 36px 28px; border-radius: 18px; }
-  .card h1 { font-size: 26px; }
+  .doc-title { font-size: 26px; }
 }
 </style>
 </head>
@@ -89,7 +100,7 @@ nav {
         <img src="assets/logo.png" height="60" alt="ClipIt" style="display:block;position:relative;top:1px;">
       </a>
       <div class="nav-links">
-        <a href="blog.html" class="active">Blog</a>
+        <a href="blog.html">Blog</a>
         <a href="newsletter.html">Newsletter</a>
         <a href="contact.html">Contact Us</a>
       </div>
@@ -112,11 +123,90 @@ nav {
 </div>
 
 <main class="page">
-  <div class="card">
-    <div class="card-icon">✍️</div>
-    <h1>Blog coming soon.</h1>
-    <p>We'll be writing about productivity, habits, and the science behind the Paper Clip Method. Check back after launch.</p>
-    <a href="newsletter.html" class="btn">Get notified at launch</a>
+  <div class="doc">
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-meta">Renew Technology Ltd &nbsp;·&nbsp; Last updated January 2026</p>
+
+    <div class="doc-section">
+      <h2>Introduction</h2>
+      <p>Renew Technology Ltd ("we", "us", or "our") operates the ClipIt mobile application ("App"). This Privacy Policy explains how we collect, use, and protect your information when you use the App. By using the App, you agree to the practices described in this policy.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Information You Provide</h2>
+      <p>We may collect information you provide directly, including:</p>
+      <ul>
+        <li>Email address (if you sign up for our newsletter or contact us)</li>
+        <li>Messages or feedback you send us</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>Information Collected Automatically</h2>
+      <p>When you use the App, we may automatically collect:</p>
+      <ul>
+        <li>Usage data (features used, session duration, in-app interactions)</li>
+        <li>Device information (device type, operating system version)</li>
+        <li>Crash reports and performance data</li>
+      </ul>
+      <p>This data is collected to help us improve the App and is not used to identify you personally.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide, maintain, and improve the App</li>
+        <li>Respond to your enquiries and support requests</li>
+        <li>Send you updates and newsletters (where you have opted in)</li>
+        <li>Analyse usage trends to enhance user experience</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+      <p>We do not sell your personal data to third parties.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Where Your Data is Stored</h2>
+      <p>Renew Technology Ltd is based in the United Kingdom. Your data may be processed and stored in the UK or in other countries where our service providers operate. We take reasonable steps to ensure your data is handled securely wherever it is processed.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Data Retention</h2>
+      <p>We retain your personal data only for as long as necessary to fulfil the purposes outlined in this policy, or as required by law. You may request deletion of your data at any time by contacting us.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Object to or restrict certain processing</li>
+        <li>Withdraw consent at any time (where processing is based on consent)</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us at <a href="mailto:support@clipit.it">support@clipit.it</a>.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Third-Party Services</h2>
+      <p>The App may use third-party services (such as analytics providers) that collect information as described in their own privacy policies. These services help us understand how the App is used and improve the experience for all users.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>App Store Purchases</h2>
+      <p>Subscriptions and in-app purchases are processed by Apple via the App Store. We do not collect or store your payment information. Please refer to Apple's Privacy Policy for details on how they handle your payment data.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page. Your continued use of the App after changes are posted constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us at <a href="mailto:support@clipit.it">support@clipit.it</a> or via our <a href="contact.html">contact page</a>.</p>
+    </div>
   </div>
 </main>
 
