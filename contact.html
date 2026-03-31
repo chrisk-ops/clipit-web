@@ -58,28 +58,33 @@ nav {
 .page { flex: 1; display: flex; align-items: center; justify-content: center; background: var(--bg); padding: 160px 6% 80px; }
 .card { background: var(--white); border-radius: 24px; padding: 56px 60px; max-width: 520px; width: 100%; box-shadow: 0 8px 40px rgba(31,58,109,.1); }
 .card h1 { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 12px; }
-.card > p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 32px; }
-.form-group { display: flex; flex-direction: column; gap: 12px; }
+.card p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 36px; }
+.form-group { display: flex; flex-direction: column; gap: 20px; }
+.field-wrap { display: flex; flex-direction: column; gap: 6px; }
+.field-label { font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: .04em; text-transform: uppercase; padding: 0 2px; }
 .field-input {
-  width: 100%; border: 1.5px solid var(--navy); border-radius: 14px;
-  padding: 14px 22px; font-size: 14px; font-family: 'Montserrat', sans-serif;
-  color: var(--navy); outline: none; transition: border-color .2s; resize: none;
+  width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 13px 16px; font-size: 14px; font-family: 'Montserrat', sans-serif;
+  color: var(--navy); outline: none; transition: border-color .2s, box-shadow .2s; resize: none;
+  background: var(--off);
 }
-.field-input.email-field { border-radius: 50px; }
-.field-input::placeholder { color: var(--muted); }
-.field-input:focus { border-color: var(--navy2); box-shadow: 0 0 0 3px rgba(31,58,109,.08); }
+.field-input::placeholder { color: #b0bec5; }
+.field-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(31,58,109,.08); background: var(--white); }
+.error-msg { font-size: 12px; color: #e53e3e; padding: 0 2px; display: none; margin-top: 2px; }
+.checkbox-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--off); border-radius: 10px; padding: 14px 16px;
+  margin-top: -10px; margin-bottom: -16px;
+}
+.checkbox-row input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; accent-color: var(--navy); width: 16px; height: 16px; cursor: pointer; }
+.checkbox-row label { font-size: 14px; color: var(--body); line-height: 1.5; cursor: pointer; }
 .submit-btn {
-  width: 50%; background: var(--navy); color: white; border: none;
-  border-radius: 50px; padding: 14px 24px; font-size: 15px; font-weight: 600;
+  width: 100%; background: var(--navy); color: white; border: none;
+  border-radius: 10px; padding: 14px 24px; font-size: 15px; font-weight: 600;
   cursor: pointer; font-family: 'Poppins', sans-serif; transition: background .2s;
-  align-self: center;
 }
 .submit-btn:hover { background: var(--navy2); }
 .submit-btn:disabled { opacity: .6; cursor: default; }
-.checkbox-row { display: flex; align-items: flex-start; gap: 10px; }
-.checkbox-row input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; accent-color: var(--navy); width: 16px; height: 16px; cursor: pointer; }
-.checkbox-row label { font-size: 14px; color: var(--body); line-height: 1.5; cursor: pointer; }
-.error-msg { font-size: 13px; color: #e53e3e; padding: 0 4px; display: none; }
 .success-state { display: none; text-align: center; padding: 12px 0; }
 .success-state h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
 .success-state p { font-size: 15px; color: var(--body); line-height: 1.7; }
@@ -112,7 +117,7 @@ nav {
         <a href="contact.html" class="active">Contact Us</a>
       </div>
     </div>
-    <a href="index.html#notify" class="nav-cta">Get Notified</a>
+    <a href="newsletter.html" class="nav-cta">Get Notified</a>
   </div>
 </nav>
 
@@ -133,20 +138,29 @@ nav {
   <div class="card">
     <div id="form-state">
       <h1>Get in touch.</h1>
-      <p>Questions, feedback, or just want to say hello — we'd love to hear from you.</p>
+      <p>Questions, feedback, or just want to say hello - we'd love to hear from you.</p>
 
       <form class="form-group" id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLScadoUUXvLlk-lBQjgofmcC9zbQKQuCBgAxvKhKUbD1Pe5W8w/formResponse" method="POST" novalidate>
-        <input class="field-input email-field" type="text" id="nameInput" name="entry.1402565567" placeholder="Name" required>
-        <div class="error-msg" id="nameError"></div>
-        <input class="field-input email-field" type="email" id="emailInput" name="entry.2007836180" placeholder="your@email.com" required>
-        <div class="error-msg" id="emailError"></div>
-        <textarea class="field-input" id="messageInput" name="entry.1476556891" placeholder="Your message..." rows="5" required></textarea>
-        <div class="error-msg" id="messageError"></div>
+        <div class="field-wrap">
+          <label class="field-label" for="nameInput">Name</label>
+          <input class="field-input" type="text" id="nameInput" name="entry.1402565567" placeholder="Your name" required>
+          <div class="error-msg" id="nameError"></div>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="emailInput">Email address</label>
+          <input class="field-input" type="email" id="emailInput" name="entry.2007836180" placeholder="your@email.com" required>
+          <div class="error-msg" id="emailError"></div>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="messageInput">Message</label>
+          <textarea class="field-input" id="messageInput" name="entry.1476556891" placeholder="How can we help?" rows="5" required></textarea>
+          <div class="error-msg" id="messageError"></div>
+        </div>
         <div class="checkbox-row">
           <input type="checkbox" id="newsletterCheckbox" name="entry.1802612899" value="Yes">
-          <label for="newsletterCheckbox">Sign me up for the ClipIt newsletter</label>
+          <label for="newsletterCheckbox">Get the ClipIt newsletter</label>
         </div>
-        <button class="submit-btn" type="submit">Send</button>
+        <button class="submit-btn" type="submit">Send message</button>
       </form>
     </div>
 
