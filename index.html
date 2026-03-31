@@ -85,10 +85,15 @@ nav {
   gap: 64px; align-items: center; max-width: 1100px; width: 100%;
 }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; gap: 6px;
   background: white; border-radius: 50px; padding: 6px 16px;
-  font-size: 12px; font-weight: 600; color: var(--navy);
-  margin-bottom: 26px; box-shadow: 0 2px 14px rgba(31,58,109,.09);
+  font-size: 12px; font-weight: 400; color: var(--navy);
+  margin-bottom: 12px; box-shadow: 0 2px 14px rgba(31,58,109,.09);
+}
+.hero-eyebrow-sub {
+  font-family: 'Poppins', sans-serif; font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600; color: var(--body); line-height: 1.3;
+  margin-top: 0; margin-bottom: 18px;
 }
 .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 .hero h1 {
@@ -100,17 +105,18 @@ nav {
   font-size: 16px; color: var(--body); line-height: 1.8;
   margin-bottom: 32px; max-width: 460px;
 }
-.notify-box { display: flex; flex-direction: column; gap: 10px; }
+.notify-box { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
+.notify-launch-label { font-size: 13px; color: var(--body); opacity: .65; margin: 0; line-height: 1.5; }
 .notify-row { display: flex; gap: 10px; }
 .notify-input {
-  flex: 1; border: 1.5px solid var(--border); border-radius: 50px;
+  flex: 1; max-width: 280px; border: 1.5px solid var(--border); border-radius: 50px;
   padding: 13px 20px; font-size: 14px; font-family: 'Montserrat', sans-serif;
   outline: none; transition: border-color .2s; color: var(--navy);
 }
 .notify-input:focus { border-color: var(--muted); }
 .notify-btn {
   background: var(--navy); color: white; border: none; border-radius: 50px;
-  padding: 13px 24px; font-size: 14px; font-weight: 600; cursor: pointer;
+  padding: 13px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
   font-family: 'Poppins', sans-serif; white-space: nowrap; transition: background .2s;
 }
 .notify-btn:hover { background: var(--navy2); }
@@ -397,7 +403,7 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
 
 <!-- LAUNCH BANNER -->
 <div class="launch-banner">
-  <span style="color:rgba(255,255,255,.6);">Launching April 21:</span>
+  <span style="color:rgba(255,255,255,.6);"><strong>Launching April 21:</strong></span>
   <div class="countdown-inline">
     <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
     <span class="cd-sep">&nbsp;:&nbsp;</span>
@@ -414,12 +420,12 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-eyebrow">
-        <div class="eyebrow-dot"></div>
-        As featured in Atomic Habits by James Clear
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span><span style="font-weight:400;color:var(--body);">As featured in </span><span style="font-weight:700;color:var(--navy);">Atomic Habits</span><span style="font-weight:400;color:var(--body);"> by James Clear</span></span>
       </div>
-      <h1>The productivity<br>method that <em>works</em> -<br>on your iPhone.</h1>
-      <p class="hero-sub">ClipIt brings the Paper Clip Method to life. Add your tasks, work through your day, and drag each completed clip across to the done jar.</p>
+      <h1>The productivity<br>app that <em>works</em>.</h1>
+      <p class="hero-eyebrow-sub">Bring the Paper Clip Method to your iPhone.</p>
       <div class="notify-box" id="notify">
+        <p class="notify-launch-label">Launching April 21 — join the waitlist for free access on day one.</p>
         <div class="notify-row">
           <input class="notify-input" type="email" placeholder="your@email.com">
           <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
