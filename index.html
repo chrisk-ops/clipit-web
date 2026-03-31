@@ -33,7 +33,7 @@
   --red:#FF0000;
   --dark:#0d1b35;
 }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 body { font-family: 'Montserrat', sans-serif; color: var(--body); background: var(--white); overflow-x: hidden; }
 h1,h2,h3,h4,.label,nav,button { font-family: 'Poppins', sans-serif; }
 
@@ -51,9 +51,10 @@ nav {
 }
 .nav-left { display: flex; align-items: center; gap: 36px; }
 .logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a { text-decoration: none; color: #555; font-size: 16px; font-weight: 500; transition: color .2s; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a { text-decoration: none; color: #555; font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; transition: color .2s; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
 .nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); border-color: var(--navy); font-weight: 600; }
 .nav-cta {
   background: var(--navy); color: #fff; border: none; border-radius: 50px;
   padding: 9px 20px; font-size: 13px; font-weight: 600; cursor: pointer;
@@ -92,7 +93,7 @@ nav {
 }
 .hero-eyebrow-sub {
   font-family: 'Poppins', sans-serif; font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 600; color: var(--body); line-height: 1.3;
+  font-weight: 600; color: var(--navy); line-height: 1.3;
   margin-top: 0; margin-bottom: 18px;
 }
 .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
@@ -105,8 +106,8 @@ nav {
   font-size: 16px; color: var(--body); line-height: 1.8;
   margin-bottom: 32px; max-width: 460px;
 }
-.notify-box { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
-.notify-launch-label { font-size: 13px; color: var(--body); opacity: .65; margin: 0; line-height: 1.5; }
+.notify-box { display: flex; flex-direction: column; gap: 12px; }
+.notify-launch-label { font-size: 16px; color: var(--body); line-height: 1.8; margin: 0 0 4px; }
 .notify-row { display: flex; gap: 10px; }
 .notify-input {
   flex: 1; max-width: 280px; border: 1.5px solid var(--border); border-radius: 50px;
@@ -393,8 +394,8 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
       </a>
       <div class="nav-links">
         <a href="blog.html">Blog</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="#contact">Contact Us</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </div>
     <a href="#notify" class="nav-cta">Get Notified</a>
@@ -425,7 +426,7 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
       <h1>The productivity<br>app that <em>works</em>.</h1>
       <p class="hero-eyebrow-sub">Bring the Paper Clip Method to your iPhone.</p>
       <div class="notify-box" id="notify">
-        <p class="notify-launch-label">Launching April 21 — join the waitlist for free access on day one.</p>
+        <p class="notify-launch-label">Launching April 21 - join the waitlist for access on day one.</p>
         <div class="notify-row">
           <input class="notify-input" type="email" placeholder="your@email.com">
           <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
@@ -473,7 +474,7 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
   <div class="about-inner">
     <div>
       <span class="s-tag blue">What is ClipIt</span>
-      <h2 class="s-h">Most to-do apps give<br>you a list. ClipIt gives<br>you a system.</h2>
+      <h2 class="s-h">Most to-do apps give<br>you a list. ClipIt gives<br>you a proven method.</h2>
       <p class="s-p">Based on the Paper Clip Method - a technique used by top performers and featured in Atomic Habits - ClipIt turns task completion into something you can see and feel, not just tick off.</p>
       <p class="s-p" style="margin-top:16px;">Whether you want to get more done at work, build a consistent routine, or stop avoiding the tasks that matter - ClipIt works through habit, not willpower.</p>
     </div>
@@ -733,16 +734,25 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
   tick();
   setInterval(tick, 1000);
 
+  var GFORM = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse';
+  var GFIELD = 'entry.1402565567';
+
+  function submitToGForm(email, btn, input, successText) {
+    var fd = new FormData();
+    fd.append(GFIELD, email);
+    fetch(GFORM, { method: 'POST', body: fd, mode: 'no-cors' }).then(function () {
+      btn.textContent = successText || 'Done!';
+      btn.disabled = true;
+      input.disabled = true;
+    });
+  }
+
   // ─── NOTIFY FORM (hero) ───
-  // TODO: Replace the fetch URL below with your Google Apps Script endpoint
   function handleNotify(btn) {
     var input = btn.previousElementSibling;
     var email = input.value.trim();
     if (!email || !email.includes('@')) { input.focus(); return; }
-    btn.textContent = 'Done!';
-    btn.disabled = true;
-    input.disabled = true;
-    // fetch('YOUR_APPS_SCRIPT_URL', { method:'POST', body: JSON.stringify({email:email}) });
+    submitToGForm(email, btn, input, 'Done!');
   }
 
   // ─── NOTIFY FORM (CTA) ───
@@ -750,10 +760,7 @@ footer { background: var(--dark); padding: 52px 6% 30px; display: flex; flex-dir
     var input = document.getElementById('cta-email');
     var email = input.value.trim();
     if (!email || !email.includes('@')) { input.focus(); return; }
-    btn.textContent = 'Done!';
-    btn.disabled = true;
-    input.disabled = true;
-    // fetch('YOUR_APPS_SCRIPT_URL', { method:'POST', body: JSON.stringify({email:email}) });
+    submitToGForm(email, btn, input, "You're in!");
   }
 
   // ─── DEMO VIDEO ───

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipIt — Join the Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #D6E9F8;
+  --navy: #1F3A6D;
+  --navy2: #2a4d8f;
+  --white: #ffffff;
+  --off: #F9F9F9;
+  --body: #4a5568;
+  --muted: #87A8D0;
+  --gold: #F7D358;
+  --border: #E8E8E8;
+}
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+body { font-family: 'Montserrat', sans-serif; color: var(--body); background: var(--white); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+h1,h2,h3,button { font-family: 'Poppins', sans-serif; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  height: 64px; padding: 0 6%;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; max-width: 1100px;
+}
+.nav-left { display: flex; align-items: center; gap: 36px; }
+.logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a { text-decoration: none; color: #555; font-size: 16px; font-weight: 500; transition: color .2s; font-family: 'Poppins', sans-serif; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); border-color: var(--navy); font-weight: 600; }
+.nav-cta {
+  background: var(--navy); color: #fff; border: none; border-radius: 50px;
+  padding: 9px 20px; font-size: 13px; font-weight: 600; cursor: pointer;
+  text-decoration: none; font-family: 'Poppins', sans-serif; transition: background .2s;
+}
+.nav-cta:hover { background: var(--navy2); }
+
+/* ─── LAUNCH BANNER ─── */
+.launch-banner {
+  background: var(--navy); color: white; text-align: center;
+  padding: 10px 6%; font-size: 13px;
+  position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+}
+.countdown-inline { display: flex; align-items: center; gap: 6px; }
+.cd-unit { display: flex; align-items: baseline; gap: 2px; }
+.cd-num { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: white; }
+.cd-lbl { font-size: 10px; color: rgba(255,255,255,.45); }
+.cd-sep { color: rgba(255,255,255,.3); }
+
+/* ─── PAGE ─── */
+.page {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); padding: 160px 6% 80px;
+}
+.card {
+  background: var(--white); border-radius: 24px;
+  padding: 56px 60px; max-width: 520px; width: 100%;
+  box-shadow: 0 8px 40px rgba(31,58,109,.1);
+}
+.card h1 {
+  font-size: 32px; font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -.02em; margin-bottom: 12px;
+}
+.card p {
+  font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 48px;
+}
+.form-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.email-input {
+  width: 100%; border: 1.5px solid var(--navy); border-radius: 50px;
+  padding: 14px 22px; font-size: 14px; font-family: 'Montserrat', sans-serif;
+  color: var(--navy); outline: none; transition: border-color .2s;
+}
+.email-input::placeholder { color: var(--muted); }
+.email-input:focus { border-color: var(--navy2); box-shadow: 0 0 0 3px rgba(31,58,109,.08); }
+.error-msg {
+  font-size: 13px; color: #e53e3e; padding: 0 4px; display: none; align-self: flex-start;
+}
+.submit-btn {
+  width: 50%; background: var(--navy); color: white; border: none;
+  border-radius: 50px; padding: 14px 24px; font-size: 15px; font-weight: 600;
+  cursor: pointer; font-family: 'Poppins', sans-serif; transition: background .2s;
+}
+.submit-btn:hover { background: var(--navy2); }
+.submit-btn:disabled { opacity: .6; cursor: default; }
+.success-state { display: none; text-align: center; padding: 12px 0; }
+.success-state h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.success-state p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 0; }
+.success-icon { font-size: 40px; margin-bottom: 16px; }
+
+/* ─── FOOTER ─── */
+.page-footer {
+  text-align: center; padding: 20px;
+  font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+.page-footer a { color: var(--muted); text-decoration: none; }
+.page-footer a:hover { color: var(--navy); }
+
+@media (max-width: 600px) {
+  .card { padding: 36px 28px; border-radius: 18px; }
+  .card h1 { font-size: 26px; }
+  .submit-btn { width: 70%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" class="logo">
+        <img src="assets/app_icon.png" width="28" height="28" alt="ClipIt icon" style="border-radius:7px;">
+        <img src="assets/logo.png" height="60" alt="ClipIt" style="display:block;position:relative;top:1px;">
+      </a>
+      <div class="nav-links">
+        <a href="blog.html">Blog</a>
+        <a href="newsletter.html" class="active">Newsletter</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <a href="index.html#notify" class="nav-cta">Get Notified</a>
+  </div>
+</nav>
+
+<div class="launch-banner">
+  <span style="color:rgba(255,255,255,.6);"><strong>Launching April 21:</strong></span>
+  <div class="countdown-inline">
+    <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
+    <span class="cd-sep">&nbsp;:&nbsp;</span>
+    <div class="cd-unit"><span class="cd-num" id="b-hrs">--</span><span class="cd-lbl">h</span></div>
+    <span class="cd-sep">&nbsp;:&nbsp;</span>
+    <div class="cd-unit"><span class="cd-num" id="b-min">--</span><span class="cd-lbl">m</span></div>
+    <span class="cd-sep">&nbsp;:&nbsp;</span>
+    <div class="cd-unit"><span class="cd-num" id="b-sec">--</span><span class="cd-lbl">s</span></div>
+  </div>
+</div>
+
+<main class="page">
+  <div class="card">
+    <div id="form-state">
+      <h1>Be first in the jar.</h1>
+      <p>Join the waitlist and get ClipIt free on launch day.</p>
+
+      <form class="form-group" id="waitlistForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse" method="POST" novalidate>
+        <input class="email-input" type="email" id="emailInput" name="entry.1402565567" placeholder="your@email.com" required>
+        <div class="error-msg" id="errorMsg"></div>
+        <button class="submit-btn" type="submit">Join waitlist</button>
+      </form>
+    </div>
+
+    <div class="success-state" id="success-state">
+      <div class="success-icon">🎉</div>
+      <h2>You're on the list.</h2>
+      <p>We'll let you know the moment ClipIt is live. See you on April 21.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <a href="index.html">clipit.it</a> &nbsp;·&nbsp; © 2025 ClipIt
+</footer>
+
+<script>
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    var launch = new Date('2026-04-21T00:00:00');
+    var diff = launch - new Date();
+    if (diff <= 0) {
+      ['b-days','b-hrs','b-min','b-sec'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = '00';
+      });
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('b-days').textContent = pad(d);
+    document.getElementById('b-hrs').textContent = pad(h);
+    document.getElementById('b-min').textContent = pad(m);
+    document.getElementById('b-sec').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  var form = document.getElementById('waitlistForm');
+  var emailInput = document.getElementById('emailInput');
+  var errorMsg = document.getElementById('errorMsg');
+
+  emailInput.addEventListener('input', function () {
+    errorMsg.style.display = 'none';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email) {
+      errorMsg.textContent = 'Please enter your email.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    if (!emailInput.validity.valid) {
+      errorMsg.textContent = 'Please enter a valid email address.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    var btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Joining...';
+    btn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      mode: 'no-cors'
+    }).then(function () {
+      document.getElementById('form-state').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+    });
+  });
+</script>
+</body>
+</html>
