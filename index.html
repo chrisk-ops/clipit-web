@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.clipit.it">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/app_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -201,7 +202,7 @@ nav {
 .s-h.white { color: white; }
 .s-h em, .s-p em { font-style: normal; color: var(--blue); }
 .s-h.white em { color: var(--gold); }
-.s-p { font-size: 15px; line-height: 1.8; color: var(--body); max-width: 540px; }
+.s-p { font-size: 16px; line-height: 1.8; color: var(--body); max-width: 540px; }
 .s-p.white { color: rgba(255,255,255,.65); }
 
 /* ─── ABOUT ─── */
@@ -232,7 +233,7 @@ nav {
 .atomic-step:first-child { padding-top: 0; }
 .atomic-step:last-child { border-bottom: none; }
 .atomic-step-title { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-.atomic-step-body { font-size: 14px; line-height: 1.7; color: var(--body); }
+.atomic-step-body { font-size: 15px; line-height: 1.7; color: var(--body); }
 
 /* ─── HOW IT WORKS ─── */
 .how-sec { background: var(--navy); }
@@ -244,7 +245,7 @@ nav {
 .how-accent { width: 40px; height: 3px; border-radius: 2px; margin-bottom: 20px; }
 .how-n { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.3); letter-spacing: .1em; margin-bottom: 14px; font-family: 'Poppins', sans-serif; }
 .how-card h3 { font-size: 18px; font-weight: 700; color: white; margin-bottom: 10px; }
-.how-card p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,.62); }
+.how-card p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.62); }
 
 /* ─── DIFFICULTY ─── */
 .clips-sec { background: var(--white); }
@@ -253,7 +254,7 @@ nav {
 .clip-card:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(31,58,109,.08); }
 .clip-pill { display: inline-flex; align-items: center; height: 34px; padding: 0 18px; border-radius: 50px; font-weight: 700; font-size: 13px; color: white; margin-bottom: 18px; font-family: 'Poppins', sans-serif; }
 .clip-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-.clip-card p { font-size: 14px; line-height: 1.75; color: var(--body); }
+.clip-card p { font-size: 15px; line-height: 1.75; color: var(--body); }
 .clip-feedback { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.7; }
 
 /* ─── PRICING ─── */
@@ -750,6 +751,36 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     demoVideo.currentTime = 0;
     demoVideo.play();
   }
+</script>
+
+<script>
+  (function() {
+    var img = new Image();
+    img.onload = function() {
+      var size = 64;
+      var radius = 14;
+      var canvas = document.createElement('canvas');
+      canvas.width = canvas.height = size;
+      var ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(img, 0, 0, size, size);
+      var link = document.querySelector("link[rel='icon']");
+      link.type = 'image/png';
+      link.href = canvas.toDataURL('image/png');
+    };
+    img.src = 'assets/app_icon.png';
+  })();
 </script>
 
 </body>
