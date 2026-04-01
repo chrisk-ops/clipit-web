@@ -87,9 +87,9 @@ nav {
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 6px;
-  background: white; border-radius: 50px; padding: 6px 16px;
-  font-size: 12px; font-weight: 400; color: var(--navy);
-  margin-bottom: 12px; box-shadow: 0 2px 14px rgba(31,58,109,.09);
+  background: white; border-radius: 50px; padding: 4px 10px;
+  font-size: 11px; font-weight: 400; color: var(--navy);
+  margin-bottom: 14px; box-shadow: 0 2px 14px rgba(31,58,109,.09);
 }
 .hero-eyebrow-sub {
   font-family: 'Poppins', sans-serif; font-size: clamp(18px, 2.2vw, 24px);
@@ -415,11 +415,15 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
       <h1>The productivity<br>app that <em>works</em>.</h1>
       <p class="hero-eyebrow-sub">Bring the Paper Clip Method to your iPhone.</p>
       <div class="notify-box" id="notify">
-        <p class="notify-launch-label">Launching April 21 - join the waitlist for access on day one.</p>
-        <div class="notify-row">
-          <input class="notify-input" type="email" placeholder="your@email.com">
-          <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
+        <div id="hero-form-content">
+          <p class="notify-launch-label">Launching April 21 - join the waitlist for access on day one.</p>
+          <div class="notify-row">
+            <input class="notify-input" type="email" id="hero-email" placeholder="your@email.com">
+            <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
+          </div>
+          <div id="hero-error" style="visibility:hidden;font-size:12px;color:#e53e3e;min-height:16px;">Please enter a valid email address.</div>
         </div>
+        <div id="hero-success" style="display:none;font-size:13px;color:#2e7d32;font-weight:600;">You're on the list. We'll see you on April 21.</div>
       </div>
     </div>
     <div class="hero-phone">
@@ -621,10 +625,14 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     <div class="cta-cd-sep">:</div>
     <div class="cta-cd-unit"><div class="cta-cd-num" id="c-sec">--</div><div class="cta-cd-lbl">Secs</div></div>
   </div>
-  <div class="notify-row-cta">
-    <input class="notify-input-cta" type="email" placeholder="your@email.com" id="cta-email">
-    <button class="notify-btn-cta" onclick="handleNotifyCta(this)">Notify me at launch</button>
+  <div id="cta-form-content" style="display:inline-flex;flex-direction:column;align-items:center;">
+    <div class="notify-row-cta">
+      <input class="notify-input-cta" type="email" placeholder="your@email.com" id="cta-email">
+      <button class="notify-btn-cta" onclick="handleNotifyCta(this)">Notify me at launch</button>
+    </div>
+    <div id="cta-error" style="visibility:hidden;font-size:12px;color:rgba(255,100,100,0.9);min-height:16px;margin-top:6px;align-self:flex-start;">Please enter a valid email address.</div>
   </div>
+  <div id="cta-success" style="display:none;font-size:13px;color:#81c784;font-weight:600;">You're on the list. We'll see you on April 21.</div>
 </section>
 
 <!-- FOOTER -->
@@ -675,30 +683,58 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   var GFORM = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse';
   var GFIELD = 'entry.1402565567';
 
-  function submitToGForm(email, btn, input, successText) {
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function submitToGForm(email, callback) {
     var fd = new FormData();
     fd.append(GFIELD, email);
-    fetch(GFORM, { method: 'POST', body: fd, mode: 'no-cors' }).then(function () {
-      btn.textContent = successText || 'Done!';
-      btn.disabled = true;
-      input.disabled = true;
-    });
+    fetch(GFORM, { method: 'POST', body: fd, mode: 'no-cors' }).then(callback);
   }
 
   // ─── NOTIFY FORM (hero) ───
   function handleNotify(btn) {
-    var input = btn.previousElementSibling;
+    var input = document.getElementById('hero-email');
+    var error = document.getElementById('hero-error');
+    var success = document.getElementById('hero-success');
+    var formContent = document.getElementById('hero-form-content');
     var email = input.value.trim();
-    if (!email || !email.includes('@')) { input.focus(); return; }
-    submitToGForm(email, btn, input, 'Done!');
+    error.style.visibility = 'hidden';
+    if (!isValidEmail(email)) { error.style.visibility = 'visible'; input.focus(); return; }
+    btn.textContent = 'Sending...'; btn.disabled = true; input.disabled = true;
+    submitToGForm(email, function() {
+      formContent.style.display = 'none';
+      success.style.display = 'block';
+      setTimeout(function() {
+        success.style.display = 'none';
+        input.value = ''; input.disabled = false;
+        btn.textContent = 'Notify me'; btn.disabled = false;
+        formContent.style.display = 'block';
+      }, 4000);
+    });
   }
 
   // ─── NOTIFY FORM (CTA) ───
   function handleNotifyCta(btn) {
     var input = document.getElementById('cta-email');
+    var error = document.getElementById('cta-error');
+    var success = document.getElementById('cta-success');
+    var formContent = document.getElementById('cta-form-content');
     var email = input.value.trim();
-    if (!email || !email.includes('@')) { input.focus(); return; }
-    submitToGForm(email, btn, input, "You're in!");
+    error.style.visibility = 'hidden';
+    if (!isValidEmail(email)) { error.style.visibility = 'visible'; input.focus(); return; }
+    btn.textContent = 'Sending...'; btn.disabled = true; input.disabled = true;
+    submitToGForm(email, function() {
+      formContent.style.display = 'none';
+      success.style.display = 'block';
+      setTimeout(function() {
+        success.style.display = 'none';
+        input.value = ''; input.disabled = false;
+        btn.textContent = 'Notify me at launch'; btn.disabled = false;
+        formContent.style.display = 'block';
+      }, 4000);
+    });
   }
 
   // ─── DEMO VIDEO ───
