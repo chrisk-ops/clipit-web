@@ -74,6 +74,22 @@ nav {
 .page-footer .ft-links a:hover { color: white; }
 .ft-cookies { font-size: 11px; color: rgba(255,255,255,.5); }
 
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; margin-left: 8px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .25s, opacity .25s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 101; background: white; border-bottom: 1px solid var(--border); flex-direction: column; padding: 8px 6% 16px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu-cta { display: block; background: var(--navy); color: white !important; border-radius: 50px; padding: 10px 20px; font-size: 13px; font-weight: 600; text-align: center; margin-top: 8px; border-bottom: none !important; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+}
 @media (max-width: 600px) {
   .card { padding: 36px 28px; border-radius: 18px; }
   .card h1 { font-size: 26px; }
@@ -96,8 +112,18 @@ nav {
       </div>
     </div>
     <a href="newsletter.html" class="nav-cta">Get Notified</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="blog.html">Blog</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="newsletter.html" class="mobile-menu-cta">Get Notified</a>
+</div>
 
 <div class="launch-banner">
   <span style="color:rgba(255,255,255,.6);"><strong>Launching April 21:</strong></span>
@@ -139,6 +165,21 @@ nav {
 </footer>
 
 <script>
+  function toggleMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobile-menu');
+    var btn = document.getElementById('hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  });
+
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
     var launch = new Date('2026-04-21T00:00:00');
