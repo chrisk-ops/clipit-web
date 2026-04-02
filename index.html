@@ -125,7 +125,8 @@ nav {
 .notify-note { font-size: 12px; color: var(--muted); }
 
 /* ─── PHONE MOCKUP ─── */
-.hero-phone { display: flex; justify-content: center; }
+.hero-phone { display: flex; justify-content: center; order: 2; }
+.hero-text { order: 1; }
 .phone-wrap {
   animation: bob 5s ease-in-out infinite;
   filter: drop-shadow(0 36px 60px rgba(31,58,109,.20));
@@ -401,8 +402,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   .stat-item { padding: 12px 20px; }
   .stat-item + .stat-item { border-left: none; border-top: 1px solid rgba(255,255,255,.12); }
 
-  /* video before text on mobile */
-  .hero-phone { order: -1; }
+  /* video before text on mobile - reset desktop order */
+  .hero-phone { order: unset; }
+  .hero-text { order: unset; }
   .hero { padding-top: 140px; }
 
   /* hero form stacks */
@@ -469,6 +471,19 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="hero-phone">
+      <div class="video-wrap">
+        <video id="demo-video" autoplay muted playsinline style="max-width:100%;max-height:560px;border-radius:50px;">
+          <source src="assets/demo.mp4" type="video/mp4">
+        </video>
+        <button class="replay-btn" id="replay-btn" onclick="replayDemo()" aria-label="Replay demo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <polyline points="3 3 3 8 8 8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
     <div class="hero-text">
       <div class="hero-eyebrow">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span><span style="font-weight:400;color:var(--body);">As featured in </span><span style="font-weight:700;color:var(--navy);">Atomic Habits</span><span style="font-weight:400;color:var(--body);"> by James Clear</span></span>
@@ -485,19 +500,6 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
           <div id="hero-error" style="visibility:hidden;font-size:12px;color:#e53e3e;min-height:16px;">Please enter a valid email address.</div>
         </div>
         <div id="hero-success" style="display:none;font-size:13px;color:#2e7d32;font-weight:600;">You're on the list. We'll see you on April 21.</div>
-      </div>
-    </div>
-    <div class="hero-phone">
-      <div class="video-wrap">
-        <video id="demo-video" autoplay muted playsinline style="max-width:100%;max-height:560px;border-radius:50px;">
-          <source src="assets/demo.mp4" type="video/mp4">
-        </video>
-        <button class="replay-btn" id="replay-btn" onclick="replayDemo()" aria-label="Replay demo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-            <polyline points="3 3 3 8 8 8"/>
-          </svg>
-        </button>
       </div>
     </div>
   </div>
