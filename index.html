@@ -239,7 +239,7 @@ nav {
 /* ─── HOW IT WORKS ─── */
 .how-sec { background: var(--navy); }
 .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
-.how-card { background: rgba(255,255,255,.06); padding: 36px 28px; transition: background .25s; }
+.how-card { background: rgba(255,255,255,.06); padding: 20px 28px 36px; transition: background .25s; }
 .how-card:hover { background: rgba(255,255,255,.10); }
 .how-card:first-child { border-radius: 18px 0 0 18px; }
 .how-card:last-child { border-radius: 0 18px 18px 0; }
@@ -405,6 +405,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 @media (max-width: 900px) {
   .hero-inner, .about-inner, .atomic-inner, .widget-inner { grid-template-columns: 1fr; }
   .how-grid, .clips-grid { grid-template-columns: 1fr; }
+  .how-grid { gap: 12px; }
   .pricing-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
