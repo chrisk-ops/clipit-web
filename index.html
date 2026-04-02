@@ -359,6 +359,16 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 }
 .replay-btn:hover { opacity: 0.8; }
 .replay-btn.visible { visibility: visible; opacity: 0.45; }
+.play-btn {
+  position: absolute; bottom: 0; right: -36px;
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: transparent; border: none; border-radius: 50%; padding: 0;
+  color: var(--navy); cursor: pointer;
+  visibility: hidden; opacity: 0; transition: opacity .2s;
+}
+.play-btn:hover { opacity: 0.8; }
+.play-btn.visible { visibility: visible; opacity: 0.45; }
 
 /* ─── HAMBURGER / MOBILE MENU ─── */
 .hamburger {
@@ -480,6 +490,11 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
             <polyline points="3 3 3 8 8 8"/>
+          </svg>
+        </button>
+        <button class="play-btn" id="play-btn" onclick="playDemo()" aria-label="Play demo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
           </svg>
         </button>
       </div>
@@ -807,14 +822,21 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   // ─── DEMO VIDEO ───
   var demoVideo = document.getElementById('demo-video');
   var replayBtn = document.getElementById('replay-btn');
+  var playBtn = document.getElementById('play-btn');
   if (demoVideo) {
     demoVideo.addEventListener('ended', function() {
       replayBtn.classList.add('visible');
     });
     var playPromise = demoVideo.play();
     if (playPromise !== undefined) {
-      playPromise.catch(function() { /* autoplay blocked by browser - user must tap */ });
+      playPromise.catch(function() {
+        if (playBtn) playBtn.classList.add('visible');
+      });
     }
+  }
+  function playDemo() {
+    demoVideo.play();
+    playBtn.classList.remove('visible');
   }
   function replayDemo() {
     replayBtn.classList.remove('visible');
