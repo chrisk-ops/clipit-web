@@ -367,8 +367,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   color: var(--navy); cursor: pointer;
   visibility: hidden; opacity: 0; transition: opacity .2s;
 }
-.play-btn:hover { opacity: 0.8; }
-.play-btn.visible { visibility: visible; opacity: 0.45; }
+.play-btn:hover { opacity: 0.7; }
+.play-btn.visible { visibility: visible; opacity: 1; }
+@media (min-width: 901px) { .play-btn { display: none; } }
 
 /* ─── HAMBURGER / MOBILE MENU ─── */
 .hamburger {
@@ -829,6 +830,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     demoVideo.addEventListener('ended', function() {
       replayBtn.classList.add('visible');
     });
+    if (window.innerWidth > 900) {
+      demoVideo.play();
+    }
   }
   function playDemo() {
     demoVideo.play();
