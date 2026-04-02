@@ -832,6 +832,11 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     });
     if (window.innerWidth > 900) {
       demoVideo.play();
+    } else {
+      var p = demoVideo.play();
+      if (p !== undefined) {
+        p.then(function() { demoVideo.pause(); demoVideo.currentTime = 0; }).catch(function() {});
+      }
     }
   }
   function playDemo() {
