@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClipIt — Contact Us</title>
-<link rel="icon" type="image/png" href="assets/app_icon.png">
+<title>ClipIt — Join the Waitlist</title>
+<link rel="icon" type="image/png" href="../assets/app_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,14 +32,21 @@ nav {
   background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1100px; }
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; max-width: 1100px;
+}
 .nav-left { display: flex; align-items: center; gap: 36px; }
 .logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 4px; }
-.nav-links a { text-decoration: none; color: var(--navy); font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; transition: color .2s; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
+.nav-links a { text-decoration: none; color: var(--navy); font-size: 16px; font-weight: 500; transition: color .2s; font-family: 'Poppins', sans-serif; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
 .nav-links a:hover { color: var(--navy); }
 .nav-links a.active { color: var(--navy); border-color: var(--navy); font-weight: 600; }
-.nav-cta { background: var(--navy); color: #fff; border: none; border-radius: 50px; padding: 9px 20px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background .2s; }
+.nav-cta {
+  background: var(--navy); color: #fff; border: none; border-radius: 50px;
+  padding: 9px 20px; font-size: 13px; font-weight: 600; cursor: pointer;
+  text-decoration: none; font-family: 'Poppins', sans-serif; transition: background .2s;
+}
 .nav-cta:hover { background: var(--navy2); }
 
 /* ─── LAUNCH BANNER ─── */
@@ -56,29 +63,34 @@ nav {
 .cd-sep { color: rgba(255,255,255,.3); }
 
 /* ─── PAGE ─── */
-.page { flex: 1; display: flex; align-items: center; justify-content: center; background: var(--bg); padding: 164px 6% 60px; }
-.card { background: var(--white); border-radius: 24px; padding: 40px 44px; max-width: 520px; width: 100%; box-shadow: 0 8px 40px rgba(31,58,109,.1); }
-.card h1 { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 12px; }
-.card p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 24px; }
+.page {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  background: var(--bg); padding: 164px 6% 60px;
+}
+.card {
+  background: var(--white); border-radius: 24px;
+  padding: 40px 44px; max-width: 520px; width: 100%;
+  box-shadow: 0 8px 40px rgba(31,58,109,.1);
+}
+.card h1 {
+  font-size: 32px; font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -.02em; margin-bottom: 12px;
+}
+.card p {
+  font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 24px;
+}
 .form-group { display: flex; flex-direction: column; gap: 12px; }
 .field-wrap { display: flex; flex-direction: column; gap: 6px; }
 .field-label { font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: .04em; text-transform: uppercase; padding: 0 2px; }
 .field-input {
   width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
   padding: 13px 16px; font-size: 14px; font-family: 'Montserrat', sans-serif;
-  color: var(--navy); outline: none; transition: border-color .2s, box-shadow .2s; resize: none;
+  color: var(--navy); outline: none; transition: border-color .2s, box-shadow .2s;
   background: var(--off);
 }
 .field-input::placeholder { color: #b0bec5; }
 .field-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(31,58,109,.08); background: var(--white); }
 .error-msg { font-size: 12px; color: #e53e3e; padding: 0 2px; margin-top: 2px; min-height: 16px; visibility: hidden; }
-.checkbox-row {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 4px 0;
-  margin-top: -8px; margin-bottom: 0px;
-}
-.checkbox-row input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; accent-color: var(--navy); width: 16px; height: 16px; cursor: pointer; }
-.checkbox-row label { font-size: 14px; color: var(--body); line-height: 1.5; cursor: pointer; }
 .submit-btn {
   width: 100%; background: var(--navy); color: white; border: none;
   border-radius: 10px; padding: 14px 24px; font-size: 15px; font-weight: 600;
@@ -88,20 +100,23 @@ nav {
 .submit-btn:disabled { opacity: .6; cursor: default; }
 .success-state { display: none; text-align: center; padding: 12px 0; }
 .success-state h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-.success-state p { font-size: 15px; color: var(--body); line-height: 1.7; }
+.success-state p { font-size: 15px; color: var(--body); line-height: 1.7; margin-bottom: 0; }
 .success-icon { font-size: 40px; margin-bottom: 16px; }
 
 /* ─── HAMBURGER / MOBILE MENU ─── */
-.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; margin-left: 8px; }
+.hamburger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px; margin-left: 8px;
+}
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .25s, opacity .25s; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 101; background: white; border-bottom: 1px solid var(--border); flex-direction: column; padding: 8px 6% 16px; }
 .mobile-menu.open { display: flex; }
-.mobile-menu a { color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.mobile-menu a:not(.mobile-menu-cta) { color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; padding: 12px 0; border-bottom: 1px solid var(--border); }
 .mobile-menu a:last-child { border-bottom: none; }
-.mobile-menu-cta { display: block; background: var(--navy); color: white !important; border-radius: 50px; padding: 10px 20px; font-size: 13px; font-weight: 600; text-align: center; margin-top: 8px; border-bottom: none !important; }
+.mobile-menu-cta { display: block; background: var(--navy); color: white !important; border-radius: 50px; padding: 10px 20px; font-size: 13px; font-weight: 600; text-align: center; margin-top: 8px; border-bottom: none !important; width: 40%; align-self: center; text-decoration: none; }
 
 /* ─── FOOTER ─── */
 .page-footer { background: #0d1b35; padding: 40px 6% 32px; }
@@ -130,17 +145,17 @@ nav {
 <nav>
   <div class="nav-inner">
     <div class="nav-left">
-      <a href="index.html" class="logo">
-        <img src="assets/app_icon.png" width="28" height="28" alt="ClipIt icon" style="border-radius:7px;">
-        <img src="assets/logo.png" height="60" alt="ClipIt" style="display:block;position:relative;top:1px;">
+      <a href="../" class="logo">
+        <img src="../assets/app_icon.png" width="28" height="28" alt="ClipIt icon" style="border-radius:7px;">
+        <img src="../assets/logo.png" height="60" alt="ClipIt" style="display:block;position:relative;top:1px;">
       </a>
       <div class="nav-links">
-        <a href="blog.html">Blog</a>
-        <a href="newsletter/">Newsletter</a>
-        <a href="contact.html" class="active">Contact Us</a>
+        <a href="../blog.html">Blog</a>
+        <a href="/newsletter/" class="active">Newsletter</a>
+        <a href="../contact.html">Contact Us</a>
       </div>
     </div>
-    <a href="newsletter/" class="nav-cta">Get Notified</a>
+    <a href="/newsletter/" class="nav-cta">Get Notified</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -148,10 +163,10 @@ nav {
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="blog.html">Blog</a>
-  <a href="newsletter/">Newsletter</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="newsletter/" class="mobile-menu-cta">Get Notified</a>
+  <a href="../blog.html">Blog</a>
+  <a href="/newsletter/">Newsletter</a>
+  <a href="../contact.html">Contact Us</a>
+  <a href="/newsletter/" class="mobile-menu-cta">Get Notified</a>
 </div>
 
 <div class="launch-banner">
@@ -170,30 +185,16 @@ nav {
 <main class="page">
   <div class="card">
     <div id="form-state">
-      <h1>Get in touch.</h1>
-      <p>Questions, feedback, or just want to say hello - we'd love to hear from you.</p>
+      <h1>Be first in the jar.</h1>
+      <p>Join the waitlist and get ClipIt free on launch day.</p>
 
-      <form class="form-group" id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLScadoUUXvLlk-lBQjgofmcC9zbQKQuCBgAxvKhKUbD1Pe5W8w/formResponse" method="POST" novalidate>
-        <div class="field-wrap">
-          <label class="field-label" for="nameInput">Name</label>
-          <input class="field-input" type="text" id="nameInput" name="entry.1402565567" placeholder="Your name" required>
-          <div class="error-msg" id="nameError"></div>
-        </div>
+      <form class="form-group" id="waitlistForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse" method="POST" novalidate>
         <div class="field-wrap">
           <label class="field-label" for="emailInput">Email address</label>
-          <input class="field-input" type="email" id="emailInput" name="entry.2007836180" placeholder="your@email.com" required>
-          <div class="error-msg" id="emailError"></div>
+          <input class="field-input" type="email" id="emailInput" name="entry.1402565567" placeholder="your@email.com" required>
+          <div class="error-msg" id="errorMsg"></div>
         </div>
-        <div class="field-wrap">
-          <label class="field-label" for="messageInput">Message</label>
-          <textarea class="field-input" id="messageInput" name="entry.1476556891" placeholder="How can we help?" rows="3" required></textarea>
-          <div class="error-msg" id="messageError"></div>
-        </div>
-        <div class="checkbox-row">
-          <input type="checkbox" id="newsletterCheckbox" name="entry.1802612899" value="Yes">
-          <label for="newsletterCheckbox">Get the ClipIt newsletter</label>
-        </div>
-        <button class="submit-btn" type="submit">Send message</button>
+        <button class="submit-btn" type="submit">Join the waitlist</button>
       </form>
     </div>
 
@@ -202,8 +203,8 @@ nav {
         <circle cx="24" cy="24" r="23" stroke="#2e7d32" stroke-width="1.5"/>
         <polyline points="14,24 21,31 34,17" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <h2 style="color:#2e7d32;">Message received.</h2>
-      <p>Thanks for getting in touch. We'll get back to you within 1–2 business days.</p>
+      <h2 style="color:#2e7d32;">You're on the list.</h2>
+      <p>We'll be in touch before launch day. See you on April 21.</p>
     </div>
   </div>
 </main>
@@ -215,12 +216,12 @@ nav {
       <p class="ft-cookies">No cookies here — zero tracking, zero crumbs. 🍪</p>
     </div>
     <div class="ft-links">
-      <a href="index.html">Home</a>
-      <a href="newsletter/">Newsletter</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+      <a href="../">Home</a>
+      <a href="/newsletter/">Newsletter</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html">Contact Us</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -247,70 +248,55 @@ nav {
     var diff = launch - new Date();
     if (diff <= 0) {
       ['b-days','b-hrs','b-min','b-sec'].forEach(function(id) {
-        var el = document.getElementById(id); if (el) el.textContent = '00';
+        var el = document.getElementById(id);
+        if (el) el.textContent = '00';
       });
       return;
     }
-    document.getElementById('b-days').textContent = pad(Math.floor(diff / 86400000));
-    document.getElementById('b-hrs').textContent  = pad(Math.floor((diff % 86400000) / 3600000));
-    document.getElementById('b-min').textContent  = pad(Math.floor((diff % 3600000) / 60000));
-    document.getElementById('b-sec').textContent  = pad(Math.floor((diff % 60000) / 1000));
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('b-days').textContent = pad(d);
+    document.getElementById('b-hrs').textContent = pad(h);
+    document.getElementById('b-min').textContent = pad(m);
+    document.getElementById('b-sec').textContent = pad(s);
   }
-  tick(); setInterval(tick, 1000);
+  tick();
+  setInterval(tick, 1000);
 
-  var form = document.getElementById('contactForm');
-  var nameInput = document.getElementById('nameInput');
+  var form = document.getElementById('waitlistForm');
   var emailInput = document.getElementById('emailInput');
-  var messageInput = document.getElementById('messageInput');
-  var nameError = document.getElementById('nameError');
-  var emailError = document.getElementById('emailError');
-  var messageError = document.getElementById('messageError');
+  var errorMsg = document.getElementById('errorMsg');
 
-  nameInput.addEventListener('input', function () {
-    var invalid = nameInput.value && nameInput.value.trim().length < 2;
-    nameError.style.visibility = invalid ? 'visible' : 'hidden';
-    if (invalid) nameError.textContent = 'Name must be at least 2 characters.';
-  });
   emailInput.addEventListener('input', function () {
-    var val = emailInput.value;
-    var invalid = val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
-    emailError.style.visibility = invalid ? 'visible' : 'hidden';
-    if (invalid) emailError.textContent = 'Please enter a valid email address.';
-  });
-  messageInput.addEventListener('input', function () {
-    var invalid = messageInput.value && messageInput.value.trim().length < 5;
-    messageError.style.visibility = invalid ? 'visible' : 'hidden';
-    if (invalid) messageError.textContent = 'Message must be at least 5 characters.';
+    errorMsg.style.visibility = 'hidden';
   });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var valid = true;
-    if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-      nameError.textContent = nameInput.value.trim() === '' ? 'Please fill in this field.' : 'Name must be at least 2 characters.';
-      nameError.style.visibility = 'visible'; valid = false;
+    var email = emailInput.value.trim();
+    errorMsg.style.visibility = 'hidden';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorMsg.textContent = !email ? 'Please enter your email address.' : 'Please enter a valid email address.';
+      errorMsg.style.visibility = 'visible';
+      emailInput.focus();
+      return;
     }
-    if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
-      emailError.textContent = emailInput.value.trim() === '' ? 'Please fill in this field.' : 'Please enter a valid email address.';
-      emailError.style.visibility = 'visible'; valid = false;
-    }
-    if (!messageInput.value.trim() || messageInput.value.trim().length < 5) {
-      messageError.textContent = messageInput.value.trim() === '' ? 'Please fill in this field.' : 'Message must be at least 5 characters.';
-      messageError.style.visibility = 'visible'; valid = false;
-    }
-    if (!valid) return;
     var btn = form.querySelector('.submit-btn');
-    btn.textContent = 'Sending...';
+    btn.textContent = 'Joining...';
     btn.disabled = true;
-    fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' }).then(function () {
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      mode: 'no-cors'
+    }).then(function () {
       document.getElementById('form-state').style.display = 'none';
       document.getElementById('success-state').style.display = 'block';
       setTimeout(function() {
         document.getElementById('success-state').style.display = 'none';
-        nameInput.value = ''; nameInput.disabled = false;
         emailInput.value = ''; emailInput.disabled = false;
-        messageInput.value = ''; messageInput.disabled = false;
-        btn.textContent = 'Send message'; btn.disabled = false;
+        btn.textContent = 'Join the waitlist'; btn.disabled = false;
         document.getElementById('form-state').style.display = 'block';
       }, 4000);
     });
@@ -334,7 +320,7 @@ nav {
       var link = document.querySelector("link[rel='icon']");
       link.type = 'image/png'; link.href = canvas.toDataURL('image/png');
     };
-    img.src = 'assets/app_icon.png';
+    img.src = '../assets/app_icon.png';
   })();
 </script>
 </body>

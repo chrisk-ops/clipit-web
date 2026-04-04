@@ -366,7 +366,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   flex-direction: column; padding: 8px 6% 16px;
 }
 .mobile-menu.open { display: flex; }
-.mobile-menu a {
+.mobile-menu a:not(.mobile-menu-cta) {
   color: var(--navy); text-decoration: none; font-size: 16px; font-weight: 500;
   font-family: 'Poppins', sans-serif; padding: 12px 0;
   border-bottom: 1px solid var(--border);
@@ -375,7 +375,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 .mobile-menu-cta {
   display: block; background: var(--navy); color: white !important;
   border-radius: 50px; padding: 10px 20px; font-size: 13px; font-weight: 600;
-  text-align: center; margin-top: 8px; border-bottom: none !important;
+  text-align: center; margin-top: 8px; border-bottom: none !important; width: 35%; align-self: center; text-decoration: none;
 }
 
 /* ─── RESPONSIVE ─── */
@@ -394,8 +394,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   .hero { padding-top: 140px; }
 
   /* hero form stacks */
-  .notify-row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .notify-row { flex-direction: column; align-items: stretch; gap: 8px; max-width: 320px; margin: 0 auto; }
   .notify-input { max-width: 100%; }
+  .notify-btn { width: 100%; }
 
   /* atomic habits eyebrow badge */
   .hero-eyebrow { font-size: 10px; flex-wrap: wrap; }
@@ -431,11 +432,11 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
       </a>
       <div class="nav-links">
         <a href="blog.html">Blog</a>
-        <a href="newsletter.html">Newsletter</a>
+        <a href="newsletter/">Newsletter</a>
         <a href="contact.html">Contact Us</a>
       </div>
     </div>
-    <a href="newsletter.html" class="nav-cta">Get Notified</a>
+    <a href="newsletter/" class="nav-cta">Get Notified</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -444,9 +445,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="blog.html">Blog</a>
-  <a href="newsletter.html">Newsletter</a>
+  <a href="newsletter/">Newsletter</a>
   <a href="contact.html">Contact Us</a>
-  <a href="newsletter.html" class="mobile-menu-cta">Get Notified</a>
+  <a href="newsletter/" class="mobile-menu-cta">Get Notified</a>
 </div>
 
 <!-- LAUNCH BANNER -->
@@ -626,7 +627,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
           <li><div class="ck ck-f">&#10003;</div>Easy, Medium and Hard clips</li>
           <li><div class="ck ck-f">&#10003;</div>Home screen widget</li>
         </ul>
-        <a href="newsletter.html" class="btn-navy">Get Notified at Launch</a>
+        <a href="newsletter/" class="btn-navy">Get Notified at Launch</a>
       </div>
       <div class="p-col pro">
         <div class="p-badge">ClipIt Pro</div>
@@ -639,7 +640,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
           <li><div class="ck ck-p">&#10003;</div>Advanced stats</li>
           <li><div class="ck ck-p">&#10003;</div>Task History - tap any day to see what you completed</li>
         </ul>
-        <a href="newsletter.html" class="btn-gold">Join the Waitlist for Pro</a>
+        <a href="newsletter/" class="btn-gold">Join the Waitlist for Pro</a>
       </div>
     </div>
   </div>
@@ -677,7 +678,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     </div>
     <div class="ft-links">
       <a href="index.html">Home</a>
-      <a href="newsletter.html">Newsletter</a>
+      <a href="newsletter/">Newsletter</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact Us</a>
       <a href="privacy.html">Privacy Policy</a>
