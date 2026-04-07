@@ -104,6 +104,9 @@ nav {
 }
 @media (max-width: 600px) {
   .doc-title { font-size: 26px; }
+  .page-footer .ft-top { flex-direction: column; }
+  .page-footer .ft-links { order: 1; flex-wrap: wrap; }
+  .page-footer .ft-left { order: 2; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; width: 100%; }
 }
 </style>
 </head>
@@ -137,7 +140,7 @@ nav {
 </div>
 
 <div class="launch-banner">
-  <span style="color:rgba(255,255,255,.6);"><strong>Launching April 21:</strong></span>
+  <span style="color:rgba(255,255,255,.6);"><strong>Launching May 1st:</strong></span>
   <div class="countdown-inline">
     <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
     <span class="cd-sep">&nbsp;:&nbsp;</span>
@@ -272,7 +275,7 @@ nav {
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
-    var launch = new Date('2026-04-21T00:00:00');
+    var launch = new Date('2026-05-01T00:00:00');
     var diff = launch - new Date();
     if (diff <= 0) {
       ['b-days','b-hrs','b-min','b-sec'].forEach(function(id) {

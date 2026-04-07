@@ -92,7 +92,7 @@ nav {
 .field-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(31,58,109,.08); background: var(--white); }
 .error-msg { font-size: 12px; color: #e53e3e; padding: 0 2px; margin-top: 2px; min-height: 16px; visibility: hidden; }
 .submit-btn {
-  width: 100%; background: var(--navy); color: white; border: none;
+  align-self: flex-start; min-width: 160px; background: var(--navy); color: white; border: none;
   border-radius: 10px; padding: 14px 24px; font-size: 15px; font-weight: 600;
   cursor: pointer; font-family: 'Poppins', sans-serif; transition: background .2s;
 }
@@ -136,7 +136,9 @@ nav {
 @media (max-width: 600px) {
   .card { padding: 36px 28px; border-radius: 18px; }
   .card h1 { font-size: 26px; }
-  .submit-btn { width: 100%; }
+  .page-footer .ft-top { flex-direction: column; }
+  .page-footer .ft-links { order: 1; flex-wrap: wrap; }
+  .page-footer .ft-left { order: 2; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; width: 100%; }
 }
 </style>
 </head>
@@ -170,7 +172,7 @@ nav {
 </div>
 
 <div class="launch-banner">
-  <span style="color:rgba(255,255,255,.6);"><strong>Launching April 21:</strong></span>
+  <span style="color:rgba(255,255,255,.6);"><strong>Launching May 1st:</strong></span>
   <div class="countdown-inline">
     <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
     <span class="cd-sep">&nbsp;:&nbsp;</span>
@@ -204,7 +206,7 @@ nav {
         <polyline points="14,24 21,31 34,17" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <h2 style="color:#2e7d32;">You're on the list.</h2>
-      <p>We'll be in touch before launch day. See you on April 21.</p>
+      <p>We'll be in touch before launch day. See you on May 1st.</p>
     </div>
   </div>
 </main>
@@ -244,7 +246,7 @@ nav {
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
-    var launch = new Date('2026-04-21T00:00:00');
+    var launch = new Date('2026-05-01T00:00:00');
     var diff = launch - new Date();
     if (diff <= 0) {
       ['b-days','b-hrs','b-min','b-sec'].forEach(function(id) {
