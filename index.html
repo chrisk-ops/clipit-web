@@ -515,7 +515,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 
 <!-- LAUNCH BANNER -->
 <div class="launch-banner">
-  <span style="color:rgba(255,255,255,.6);"><strong>Launching May 1st:</strong></span>
+  <span style="color:rgba(255,255,255,.6);"><strong>Launching May 11th:</strong></span>
   <div class="countdown-inline">
     <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
     <span class="cd-sep">&nbsp;:&nbsp;</span>
@@ -556,14 +556,14 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
       <p class="hero-eyebrow-sub">Bring the Paper Clip Method to your iPhone.</p>
       <div class="notify-box" id="notify">
         <div id="hero-form-content">
-          <p class="notify-launch-label">Launching May 1st - join the waitlist for access on day one.</p>
+          <p class="notify-launch-label">Launching May 11th - join the waitlist for access on day one.</p>
           <div class="notify-row">
             <input class="notify-input" type="email" id="hero-email" placeholder="your@email.com">
             <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
           </div>
           <div id="hero-error" style="visibility:hidden;font-size:12px;color:#e53e3e;min-height:16px;margin-top:6px;">Please enter a valid email address.</div>
         </div>
-        <div id="hero-success" style="display:none;font-size:13px;color:#2e7d32;font-weight:600;">You're on the list. We'll see you on May 1st.</div>
+        <div id="hero-success" style="display:none;font-size:13px;color:#2e7d32;font-weight:600;">You're on the list. We'll see you on May 11th.</div>
       </div>
     </div>
   </div>
@@ -749,7 +749,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
     </div>
     <div id="cta-error" style="visibility:hidden;font-size:12px;color:rgba(255,100,100,0.9);min-height:16px;margin-top:6px;text-align:center;">Please enter a valid email address.</div>
   </div>
-  <div id="cta-success" style="display:none;font-size:13px;color:#81c784;font-weight:600;">You're on the list. We'll see you on May 1st.</div>
+  <div id="cta-success" style="display:none;font-size:13px;color:#81c784;font-weight:600;">You're on the list. We'll see you on May 11th.</div>
 </section>
 
 <!-- FOOTER -->
@@ -775,7 +775,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   // ─── COUNTDOWN ───
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function tick() {
-    var launch = new Date('2026-05-01T00:00:00');
+    var launch = new Date('2026-05-11T00:00:00');
     var diff = launch - new Date();
     if (diff <= 0) {
       ['b-days','b-hrs','b-min','b-sec','c-days','c-hrs','c-min','c-sec'].forEach(function(id) {
