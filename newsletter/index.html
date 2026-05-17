@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ClipIt — Join the Waitlist</title>
 <meta name="description" content="Join the ClipIt newsletter for habit-building tips, app updates, and early access to new features.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.clipit.it/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.clipit.it/assets/og-image.png">
 <link rel="canonical" href="https://www.clipit.it/newsletter/">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -85,7 +90,7 @@ nav {
 .error-msg { font-size: 12px; color: #e53e3e; padding: 0 2px; margin-top: 2px; min-height: 16px; visibility: hidden; }
 .submit-btn {
   align-self: flex-start; background: var(--navy); color: white; border: none;
-  border-radius: 10px; padding: 14px 24px; font-size: 15px; font-weight: 600;
+  border-radius: 50px; padding: 12px 28px; font-size: 14px; font-weight: 600;
   cursor: pointer; font-family: 'Poppins', sans-serif; transition: background .2s;
 }
 .submit-btn:hover { background: var(--navy2); }
@@ -172,7 +177,7 @@ nav {
       <h1>Be first in the jar.</h1>
       <p>Get productivity tips, updates and early access to new features before anyone else.</p>
 
-      <form class="form-group" id="waitlistForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse" method="POST" novalidate>
+      <form class="form-group" id="newsletterForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse" method="POST" novalidate>
         <div class="field-wrap">
           <label class="field-label" for="emailInput">Email address</label>
           <input class="field-input" type="email" id="emailInput" name="entry.1402565567" placeholder="your@email.com" required>
@@ -228,7 +233,7 @@ nav {
   });
 
 
-  var form = document.getElementById('waitlistForm');
+  var form = document.getElementById('newsletterForm');
   var emailInput = document.getElementById('emailInput');
   var errorMsg = document.getElementById('errorMsg');
 
