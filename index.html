@@ -83,24 +83,30 @@ nav {
 }
 .nav-cta:hover { background: var(--navy2); }
 
-/* ─── LAUNCH BANNER ─── */
-.launch-banner {
-  background: var(--navy); color: white; text-align: center;
-  padding: 10px 6%; font-size: 13px;
-  position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
-  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+/* ─── APP STORE BUTTON ─── */
+.appstore-btn {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: var(--navy); color: white; text-decoration: none;
+  padding: 13px 22px; border-radius: 14px;
+  font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 600;
+  transition: background .2s; margin-bottom: 8px;
 }
-.countdown-inline { display: flex; align-items: center; gap: 6px; }
-.cd-unit { display: flex; align-items: baseline; gap: 2px; }
-.cd-num { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: white; }
-.cd-lbl { font-size: 10px; color: rgba(255,255,255,.45); }
-.cd-sep { color: rgba(255,255,255,.3); }
+.appstore-btn:hover { background: var(--navy2); }
+.appstore-btn-cta {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: white; color: var(--navy); text-decoration: none;
+  padding: 14px 26px; border-radius: 14px;
+  font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 600;
+  transition: opacity .2s;
+}
+.appstore-btn-cta:hover { opacity: .9; }
+.appstore-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
 /* ─── HERO ─── */
 .hero {
   background: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  padding: 174px 6% 70px; position: relative; overflow: hidden;
+  padding: 120px 6% 70px; position: relative; overflow: hidden;
 }
 .hero-inner {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -127,22 +133,6 @@ nav {
   font-size: 16px; color: var(--body); line-height: 1.8;
   margin-bottom: 32px; max-width: 460px;
 }
-.notify-box { display: flex; flex-direction: column; gap: 12px; }
-.notify-launch-label { font-size: 16px; color: var(--body); line-height: 1.8; margin: 0 0 20px; }
-.notify-row { display: flex; gap: 10px; }
-.notify-input {
-  flex: 1; max-width: 280px; border: 1.5px solid var(--border); border-radius: 50px;
-  padding: 13px 20px; font-size: 14px; font-family: 'Montserrat', sans-serif;
-  outline: none; transition: border-color .2s; color: var(--navy);
-}
-.notify-input:focus { border-color: var(--muted); }
-.notify-btn {
-  background: var(--navy); color: white; border: none; border-radius: 50px;
-  padding: 13px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
-  font-family: 'Poppins', sans-serif; white-space: nowrap; transition: background .2s;
-}
-.notify-btn:hover { background: var(--navy2); }
-.notify-note { font-size: 12px; color: var(--muted); }
 
 /* ─── PHONE MOCKUP ─── */
 .hero-phone { display: flex; justify-content: center; order: 2; }
@@ -361,17 +351,6 @@ nav {
 .cta-sec { background: var(--navy); text-align: center; padding: 90px 6%; border-top: 1px solid var(--border); }
 .cta-sec h2 { font-size: clamp(26px, 4vw, 48px); font-weight: 700; color: white; margin-bottom: 14px; line-height: 1.1; }
 .cta-sec > p { font-size: 16px; color: rgba(255,255,255,.55); margin-bottom: 36px; }
-.cta-countdown { display: flex; justify-content: center; gap: 20px; margin-bottom: 36px; flex-wrap: wrap; align-items: center; }
-.cta-cd-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.cta-cd-num { font-family: 'Poppins', sans-serif; font-size: 52px; font-weight: 800; color: white; line-height: 1; }
-.cta-cd-lbl { font-size: 10px; color: rgba(255,255,255,.35); text-transform: uppercase; letter-spacing: .1em; }
-.cta-cd-sep { font-size: 44px; font-weight: 300; color: rgba(255,255,255,.2); line-height: 1; padding-bottom: 16px; }
-.notify-row-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.notify-input-cta { width: 280px; border: 1.5px solid rgba(255,255,255,.2); background: rgba(255,255,255,.07); border-radius: 50px; padding: 14px 22px; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none; color: white; transition: border-color .2s; }
-.notify-input-cta::placeholder { color: rgba(255,255,255,.35); }
-.notify-input-cta:focus { border-color: rgba(255,255,255,.45); }
-.notify-btn-cta { background: white; color: var(--navy); border: none; border-radius: 50px; padding: 14px 26px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: opacity .2s; }
-.notify-btn-cta:hover { opacity: .88; }
 
 /* ─── FOOTER ─── */
 footer { background: var(--dark); padding: 40px 6% 32px; }
@@ -448,28 +427,13 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   /* video before text on mobile - reset desktop order */
   .hero-phone { order: unset; }
   .hero-text { order: unset; }
-  .hero { padding-top: 140px; }
-
-  /* hero form stacks */
-  .notify-row { flex-direction: column; align-items: stretch; gap: 8px; max-width: 320px; margin: 0 auto; }
-  .notify-input { max-width: 100%; }
-  .notify-btn { width: 100%; }
-  #hero-error { max-width: 320px; margin: 0 auto; text-align: center; }
+  .hero { padding-top: 100px; }
 
   /* atomic habits eyebrow badge */
   .hero-eyebrow { font-size: 10px; flex-wrap: wrap; }
 
-  /* cta form stacks */
-  .notify-row-cta { flex-direction: column; align-items: center; }
-  .notify-input-cta { width: 100%; max-width: 340px; }
-  .notify-btn-cta { width: 100%; max-width: 340px; }
-
-  /* cta section bottom spacing + countdown single line */
+  /* cta section */
   .cta-sec { padding-bottom: 48px; }
-  .cta-countdown { flex-wrap: nowrap; gap: 10px; }
-  .cta-cd-num { font-size: 32px; }
-  .cta-cd-sep { font-size: 28px; padding-bottom: 10px; }
-  .cta-cd-lbl { font-size: 9px; }
 
   /* atomic section: heading above steps on mobile */
   .atomic-right { order: 2; }
@@ -503,7 +467,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
         <a href="contact/">Contact Us</a>
       </div>
     </div>
-    <a href="newsletter/" class="nav-cta">Get Notified</a>
+    <a href="https://apps.apple.com/us/app/clipit-paper-clip-to-do-list/id6745722313" target="_blank" rel="noopener" class="nav-cta">Download Free</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -515,21 +479,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
   <a href="blog/">Blog</a>
   <a href="newsletter/">Newsletter</a>
   <a href="contact/">Contact Us</a>
-  <a href="newsletter/" class="mobile-menu-cta">Get Notified</a>
-</div>
-
-<!-- LAUNCH BANNER -->
-<div class="launch-banner">
-  <span style="color:rgba(255,255,255,.6);"><strong>Launching Monday 18th May:</strong></span>
-  <div class="countdown-inline">
-    <div class="cd-unit"><span class="cd-num" id="b-days">--</span><span class="cd-lbl">d</span></div>
-    <span class="cd-sep">&nbsp;:&nbsp;</span>
-    <div class="cd-unit"><span class="cd-num" id="b-hrs">--</span><span class="cd-lbl">h</span></div>
-    <span class="cd-sep">&nbsp;:&nbsp;</span>
-    <div class="cd-unit"><span class="cd-num" id="b-min">--</span><span class="cd-lbl">m</span></div>
-    <span class="cd-sep">&nbsp;:&nbsp;</span>
-    <div class="cd-unit"><span class="cd-num" id="b-sec">--</span><span class="cd-lbl">s</span></div>
-  </div>
+  <a href="https://apps.apple.com/us/app/clipit-paper-clip-to-do-list/id6745722313" target="_blank" rel="noopener" class="mobile-menu-cta">Download Free</a>
 </div>
 
 <!-- HERO -->
@@ -559,17 +509,9 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
       </div>
       <h1>The productivity<br>app that <em>works</em>.</h1>
       <p class="hero-eyebrow-sub">Bring the Paper Clip Method to your iPhone.</p>
-      <div class="notify-box" id="notify">
-        <div id="hero-form-content">
-          <p class="notify-launch-label">Launching Monday 18th May - join the waitlist for access on day one.</p>
-          <div class="notify-row">
-            <input class="notify-input" type="email" id="hero-email" placeholder="your@email.com">
-            <button class="notify-btn" onclick="handleNotify(this)">Notify me</button>
-          </div>
-          <div id="hero-error" style="visibility:hidden;font-size:12px;color:#e53e3e;min-height:16px;margin-top:6px;">Please enter a valid email address.</div>
-        </div>
-        <div id="hero-success" style="display:none;font-size:13px;color:#2e7d32;font-weight:600;">You're on the list. We'll see you on Monday 18th May.</div>
-      </div>
+      <a href="https://apps.apple.com/us/app/clipit-paper-clip-to-do-list/id6745722313" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;">
+        <img src="/assets/badge-app-store.svg" alt="Download on the App Store" height="52">
+      </a>
     </div>
   </div>
 </section>
@@ -715,7 +657,7 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
           <li><div class="ck ck-f">&#10003;</div>Easy, Medium and Hard clips</li>
           <li><div class="ck ck-f">&#10003;</div>Home screen widget</li>
         </ul>
-        <a href="newsletter/" class="btn-navy">Get Notified at Launch</a>
+        <a href="https://apps.apple.com/us/app/clipit-paper-clip-to-do-list/id6745722313" target="_blank" rel="noopener" class="btn-navy">Download Free</a>
       </div>
       <div class="p-col pro">
         <div class="p-badge">ClipIt Pro</div>
@@ -736,25 +678,11 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 
 <!-- FINAL CTA -->
 <section class="cta-sec">
-  <h2>Be first in the jar.</h2>
-  <p>Join the waitlist. Get ClipIt free on launch day.</p>
-  <div class="cta-countdown">
-    <div class="cta-cd-unit"><div class="cta-cd-num" id="c-days">--</div><div class="cta-cd-lbl">Days</div></div>
-    <div class="cta-cd-sep">:</div>
-    <div class="cta-cd-unit"><div class="cta-cd-num" id="c-hrs">--</div><div class="cta-cd-lbl">Hours</div></div>
-    <div class="cta-cd-sep">:</div>
-    <div class="cta-cd-unit"><div class="cta-cd-num" id="c-min">--</div><div class="cta-cd-lbl">Mins</div></div>
-    <div class="cta-cd-sep">:</div>
-    <div class="cta-cd-unit"><div class="cta-cd-num" id="c-sec">--</div><div class="cta-cd-lbl">Secs</div></div>
-  </div>
-  <div id="cta-form-content" style="display:inline-flex;flex-direction:column;align-items:center;">
-    <div class="notify-row-cta">
-      <input class="notify-input-cta" type="email" placeholder="your@email.com" id="cta-email">
-      <button class="notify-btn-cta" onclick="handleNotifyCta(this)">Notify me at launch</button>
-    </div>
-    <div id="cta-error" style="visibility:hidden;font-size:12px;color:rgba(255,100,100,0.9);min-height:16px;margin-top:6px;text-align:center;">Please enter a valid email address.</div>
-  </div>
-  <div id="cta-success" style="display:none;font-size:13px;color:#81c784;font-weight:600;">You're on the list. We'll see you on Monday 18th May.</div>
+  <h2>Get things done,<br>one clip at a time.</h2>
+  <p>Download ClipIt free on the App Store.</p>
+  <a href="https://apps.apple.com/us/app/clipit-paper-clip-to-do-list/id6745722313" target="_blank" rel="noopener">
+    <img src="/assets/badge-app-store.svg" alt="Download on the App Store" height="54" style="display:block;">
+  </a>
 </section>
 
 <!-- FOOTER -->
@@ -777,89 +705,6 @@ footer { background: var(--dark); padding: 40px 6% 32px; }
 </footer>
 
 <script>
-  // ─── COUNTDOWN ───
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-  function tick() {
-    var launch = new Date('2026-05-18T00:00:00');
-    var diff = launch - new Date();
-    if (diff <= 0) {
-      ['b-days','b-hrs','b-min','b-sec','c-days','c-hrs','c-min','c-sec'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.textContent = '00';
-      });
-      return;
-    }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    [['b-days','c-days',d],['b-hrs','c-hrs',h],['b-min','c-min',m],['b-sec','c-sec',s]].forEach(function(p) {
-      [p[0], p[1]].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.textContent = pad(p[2]);
-      });
-    });
-  }
-  tick();
-  setInterval(tick, 1000);
-
-  var GFORM = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSe3fBuG2dDb_8YIkreNpQbTJzpNqDkuaoKrHcOejn1xG9SKtw/formResponse';
-  var GFIELD = 'entry.1402565567';
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function submitToGForm(email, callback) {
-    var fd = new FormData();
-    fd.append(GFIELD, email);
-    fetch(GFORM, { method: 'POST', body: fd, mode: 'no-cors' }).then(callback);
-  }
-
-  // ─── NOTIFY FORM (hero) ───
-  function handleNotify(btn) {
-    var input = document.getElementById('hero-email');
-    var error = document.getElementById('hero-error');
-    var success = document.getElementById('hero-success');
-    var formContent = document.getElementById('hero-form-content');
-    var email = input.value.trim();
-    error.style.visibility = 'hidden';
-    if (!isValidEmail(email)) { error.style.visibility = 'visible'; input.focus(); return; }
-    btn.textContent = 'Sending...'; btn.disabled = true; input.disabled = true;
-    submitToGForm(email, function() {
-      formContent.style.display = 'none';
-      success.style.display = 'block';
-      setTimeout(function() {
-        success.style.display = 'none';
-        input.value = ''; input.disabled = false;
-        btn.textContent = 'Notify me'; btn.disabled = false;
-        formContent.style.display = 'block';
-      }, 4000);
-    });
-  }
-
-  // ─── NOTIFY FORM (CTA) ───
-  function handleNotifyCta(btn) {
-    var input = document.getElementById('cta-email');
-    var error = document.getElementById('cta-error');
-    var success = document.getElementById('cta-success');
-    var formContent = document.getElementById('cta-form-content');
-    var email = input.value.trim();
-    error.style.visibility = 'hidden';
-    if (!isValidEmail(email)) { error.style.visibility = 'visible'; input.focus(); return; }
-    btn.textContent = 'Sending...'; btn.disabled = true; input.disabled = true;
-    submitToGForm(email, function() {
-      formContent.style.display = 'none';
-      success.style.display = 'block';
-      setTimeout(function() {
-        success.style.display = 'none';
-        input.value = ''; input.disabled = false;
-        btn.textContent = 'Notify me at launch'; btn.disabled = false;
-        formContent.style.display = 'block';
-      }, 4000);
-    });
-  }
-
   // ─── MOBILE MENU ───
   function toggleMenu() {
     var menu = document.getElementById('mobile-menu');
