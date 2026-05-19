@@ -86,6 +86,7 @@ nav {
 }
 .submit-btn:hover { background: rgba(31,58,109,.82); }
 .submit-btn:disabled { opacity: .6; cursor: default; }
+.hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .success-state { display: none; text-align: center; padding: 12px 0; }
 .success-state h2 { font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
 .success-state p { font-size: 15px; color: var(--body); line-height: 1.7; }
@@ -232,6 +233,11 @@ nav {
 
 
   var form = document.getElementById('contactForm');
+  var hp = document.createElement('input');
+  hp.type = 'text'; hp.name = 'website'; hp.id = 'honeypot';
+  hp.tabIndex = -1; hp.autocomplete = 'off'; hp.setAttribute('aria-hidden', 'true');
+  hp.className = 'hp-field';
+  form.appendChild(hp);
   var nameInput = document.getElementById('nameInput');
   var emailInput = document.getElementById('emailInput');
   var messageInput = document.getElementById('messageInput');
@@ -280,6 +286,7 @@ nav {
       messageError.style.visibility = 'visible'; valid = false;
     }
     if (!valid) return;
+    if (document.getElementById('honeypot').value) return;
     var btn = form.querySelector('.submit-btn');
     btn.textContent = 'Sending...';
     btn.disabled = true;
