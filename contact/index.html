@@ -286,16 +286,9 @@ nav {
     fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' }).then(function () {
       document.getElementById('form-state').style.display = 'none';
       document.getElementById('success-state').style.display = 'block';
-      setTimeout(function() {
-        document.getElementById('success-state').style.display = 'none';
-        nameInput.value = ''; nameInput.disabled = false;
-        emailInput.value = ''; emailInput.disabled = false;
-        messageInput.value = ''; messageInput.disabled = false;
-        btn.textContent = 'Send message'; btn.disabled = false;
-        document.getElementById('form-state').style.display = 'block';
-      }, 4000);
     });
   });
+
 </script>
 
 <script>

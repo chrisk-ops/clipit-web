@@ -203,7 +203,7 @@ nav {
         <polyline points="14,24 21,31 34,17" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <h2 style="color:#2e7d32;">You're on the list.</h2>
-      <p>We'll send you productivity tips and be first to know about new features and updates.</p>
+      <p>Welcome to the ClipIt community - good things incoming!</p>
     </div>
   </div>
 </main>
@@ -271,12 +271,6 @@ nav {
     }).then(function () {
       document.getElementById('form-state').style.display = 'none';
       document.getElementById('success-state').style.display = 'block';
-      setTimeout(function() {
-        document.getElementById('success-state').style.display = 'none';
-        emailInput.value = ''; emailInput.disabled = false;
-        btn.textContent = 'Subscribe'; btn.disabled = false;
-        document.getElementById('form-state').style.display = 'block';
-      }, 4000);
     });
   });
 </script>
