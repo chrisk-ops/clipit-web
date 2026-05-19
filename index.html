@@ -77,15 +77,15 @@ nav {
 .nav-left { display: flex; align-items: center; gap: 36px; }
 .logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 4px; }
-.nav-links a { text-decoration: none; color: var(--navy); font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; transition: color .2s; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
-.nav-links a:hover { color: var(--navy); }
+.nav-links a { text-decoration: none; color: var(--navy); font-size: 16px; font-weight: 500; font-family: 'Poppins', sans-serif; transition: color .2s, background .2s; padding: 5px 14px; border: 1.5px solid transparent; border-radius: 50px; }
+.nav-links a:hover { color: var(--navy); background: rgba(31,58,109,.08); }
 .nav-links a.active { color: var(--navy); border-color: var(--navy); font-weight: 600; }
 .nav-cta {
   background: var(--navy); color: #fff; border: none; border-radius: 50px;
   padding: 9px 20px; font-size: 13px; font-weight: 600; cursor: pointer;
   text-decoration: none; font-family: 'Poppins', sans-serif; transition: background .2s;
 }
-.nav-cta:hover { background: var(--navy2); }
+.nav-cta:hover { background: rgba(31,58,109,.82); }
 
 /* ─── APP STORE BUTTON ─── */
 .appstore-btn {
@@ -95,7 +95,7 @@ nav {
   font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 600;
   transition: background .2s; margin-bottom: 8px;
 }
-.appstore-btn:hover { background: var(--navy2); }
+.appstore-btn:hover { background: rgba(31,58,109,.82); }
 .appstore-btn-cta {
   display: inline-flex; align-items: center; gap: 11px;
   background: white; color: var(--navy); text-decoration: none;
@@ -327,7 +327,7 @@ nav {
 .ck-f { background: var(--bg); color: var(--navy); }
 .ck-p { background: rgba(247,211,88,.18); color: var(--gold); }
 .btn-navy { display: inline-block; margin-top: 26px; background: var(--navy); color: white; padding: 14px 26px; border-radius: 50px; font-weight: 600; font-size: 14px; text-decoration: none; font-family: 'Poppins', sans-serif; transition: background .2s; }
-.btn-navy:hover { background: var(--navy2); }
+.btn-navy:hover { background: rgba(31,58,109,.82); }
 .btn-gold { display: inline-block; margin-top: 26px; background: linear-gradient(135deg, var(--gold-l), var(--gold2)); color: var(--navy); padding: 14px 26px; border-radius: 50px; font-weight: 700; font-size: 14px; text-decoration: none; font-family: 'Poppins', sans-serif; box-shadow: 0 4px 18px rgba(247,211,88,.32); transition: transform .2s; }
 .btn-gold:hover { transform: translateY(-2px); }
 .trial-note { margin-top: 12px; font-size: 11px; color: rgba(255,255,255,.35); }
@@ -360,11 +360,11 @@ nav {
 footer { background: var(--dark); padding: 40px 6% 32px; }
 .ft-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; width: 100%; }
 .ft-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-.ft-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px; transition: color .2s; }
-.ft-links a:hover { color: white; }
-.ft-copy { font-size: 12px; color: rgba(255,255,255,.25); }
+.ft-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: 13px; transition: color .2s; }
+.ft-links a:hover { color: rgba(255,255,255,.5); }
+.ft-copy { font-size: 12px; color: rgba(255,255,255,.55); }
 .ft-left { display: flex; flex-direction: column; gap: 14px; }
-.ft-cookies { font-size: 11px; color: rgba(255,255,255,.5); }
+.ft-cookies { font-size: 11px; color: rgba(255,255,255,.8); }
 
 /* ─── WIDGET IMAGES ─── */
 .widget-annotated { display: flex; align-items: flex-start; gap: 16px; }
